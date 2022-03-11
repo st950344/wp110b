@@ -6,6 +6,6 @@
 - SECOND
 - THRID
 
-* first
-* second
-* thrid
+* First
+* Second
+* Thrid
