@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table,th,td{
+  border: 1px solid black; 
+  border-collapse: collapse;
+  padding:10px;
+  text-align: center;
+}
+td:nth-child(odd){
+  background-color:lightblue;
+}
+td:nth-child(even){
+  background-color:pink;
+}
+</style>
+</head>
+
+ <!--
+ 被合併的格子相當於被刪除，先畫完圖表再修改
+ 故，單雙數格會被判定錯誤。
+ -->
+
+<body>
+<table width="100%">
+  <capation>課表</capation>
+  <tr>
+  	<th></th>
+    <th>一</th>
+    <th>二</th>
+    <th>三</th>
+    <th>四</th>
+    <th>五</th>
+  </tr>
+  
+  <tr>
+  	<th>1</th>
+    <td></td>
+	<td></td>
+    <td rowspan="2">英文</td>
+    <td></td>
+  	<td></td>
+  </tr>
+  
+  <tr>
+  	<th>2</th>
+    <td></td>
+   	<td rowspan="3">數學</td>
+    <td rowspan="3">程式</td>
+    <td rowspan="3">網頁</td>
+   </tr>
+   
+   <tr>
+  	<th>3</th>
+    <td></td>
+    <td rowspan="2">國文</td>
+   </tr>
+   
+   <tr>
+  	<th>4</th>
+    <td></td>
+   </tr>
+   
+   <tr>
+  	<th>5</th>
+    <td rowspan="3">電路</td>
+    <td rowspan="3">網路</td>
+    <td rowspan="3">資英</td>
+    <td></td>
+    <td rowspan="3">體育</td>
+   </tr>
+   
+   <tr>
+  	<th>6</th>
+    <td></td>
+   </tr>
+   
+   <tr>
+  	<th>7</th>
+    <td></td>
+   </tr>
+</table>
+</body>
+
