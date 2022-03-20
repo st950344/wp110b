@@ -9,13 +9,16 @@
 
 <body>
 <form action="/action_page.php">
+	<label for="date">Date</label>
 	<input type="date" id="date" name="DATE">
-    <input type="submit" value="SUBMIT">
     <br><br>
     <label for="min_date">The date after 1900-12-30</label>
 	<input type="date" id="min_date" name="MIN" min="1900-12-30"><br><br>
     <label for="min_date">The date before 2000-12-31</label>
     <input type="date" id="max_date" name="MAX" max="2000-12-31">
+    <br><br>
+    <label for="datetime">Date and Time</label>
+    <input type="datetime-local" id="datetime" name="DATATIME">
 </form>
 </body>
 </html>
