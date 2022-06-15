@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+
+<script>
+let test1 = "3+2-5*2+1" 
+const array1 = test1.split("+");
+document.getElementById('demo1').innerHTML = "["+array1+"]";
+
+let test2 = "1,2,3,4,5" 
+const array2 = test2.split(",");
+document.getElementById('demo2').innerHTML = array2[0];
+
+let test3 = "abcdef" 
+const array3 = test3.split("");
+document.getElementById('demo3').innerHTML = "["+array3+"]";
+
+</script>
+
+</body>
+</html> 
