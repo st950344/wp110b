@@ -2,12 +2,18 @@
 <html>
 <body>
 
-<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo3"></p>
+<p id="demo4"></p>
 
 <script>
-let s = "abcde,fghij,klmno"
-document.getElementById('demo').innerHTML= s.slice(5,8) //不含終點自己
-
+let s = "abcde,fghij,klmno" //01234,6789,12345
+//不含終點自己
+document.getElementById('demo1').innerHTML= s.slice(5,8) // 第5位到第8位
+document.getElementById('demo2').innerHTML= s.slice(-8,-3) //由後往前數第8位到第5位
+document.getElementById('demo3').innerHTML= s.slice(5) //第5位開始取到最後
+document.getElementById('demo4').innerHTML= s.slice(-8) //由後往前數第8位到最後
 </script>
 
 </body>
