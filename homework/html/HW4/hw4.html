@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HW4</title>
+
+<style>
+form{
+	width:60%;
+    margin:10%;
+    padding:10%;
+    text-align:center;
+    border:1px LightGray solid;
+    background-color:lightblue;
+}
+.ib{
+	display:inline-block;
+}
+.notib{
+	display:block;
+}
+input{
+    padding:10px;
+    display:inline-block;
+}
+input:focus {
+  border: 2px solid #555;
+}
+
+select{
+	padding:10px;
+    display:inline-block;
+}
+</style>
+
+</head>
+
+
+<body>
+<form>
+<h1>Registration Form</h1>
+<p class="ib"><input type="text" name="firstname" value="" placeholder="First Name"/></p>
+<p class="ib"><input type="text" name="lastname" value="" placeholder="Last Name"/></p>
+<br>
+<p class="ib"><input type="date"></p>
+<div class="ib">
+<input  type="radio" name="sex" value="male">Female
+<input  type="radio" name="sex" value="female">Male
+<input  type="radio" name="sex" value="female">Other
+</div>
+<br>
+<p class="ib"><input type="text" name="email" value="" placeholder="E-mail"/></p>
+<p class="ib"><input type="password" name="" value="" placeholder="Password"/></p>
+<p class="notib"><textarea id="w3review" name="w3review" rows="4" cols="50">Address</textarea></p>
+
+<select class="notib">
+    <option>選擇產品</option>
+    <option>產品一</option>
+    <option>產品二</option>
+	<option>產品三</option>
+</select>
+</form>
+</body>
+</html>
