@@ -1,0 +1,36 @@
+> let text = "name:ivy surname:Huang age:30 weight:55"
+< undefined
+> let re1 = /[0-9]+/g
+< undefined
+> re1
+< /[0-9]+/g
+> text
+< 'name:ivy surname:Huang age:30 weight:55'
+> text.match(re1)
+< (2) ['30', '55']
+> let re2 = /[a-z]+/g 
+< undefined
+> text.match(re2)
+< (6) ['name', 'ivy', 'surname', 'uang', 'age', 'weight']
+> let re3 = /[0-9a-zA-Z]+/g
+< undefined
+> text.match(re3)
+< (8) ['name', 'ivy', 'surname', 'Huang', 'age', '30', 'weight', '55']
+> let re4 = /:([0-9a-zA-Z]+)/
+< undefined
+> text.match(re4)
+< (2) [':ivy', 'ivy', index: 4, input: 'name:ivy surname:Huang age:30 weight:55', groups: undefined]
+> let re5 = /:\w+/
+< undefined
+> text.match(re5)
+< [':ivy', index: 4, input: 'name:ivy surname:Huang age:30 weight:55', groups: undefined]
+> let re6 = /:\D+/
+< undefined
+> text.match(re6)
+< [':ivy surname:Huang age:', index: 4, input: 'name:ivy surname:Huang age:30 weight:55', groups: undefined]
+> let text = "hello , my e-mail address is s111010565@student.nqu.edu.tw."
+< undefined
+> let re7 = /\w+@[\w\.]+/g
+< undefined
+> text.match(re7)
+< ['s111010565@student.nqu.edu.tw.']
