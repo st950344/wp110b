@@ -1,126 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>HW2</title>
+<title>HW4</title>
 
 <style>
-* {
-    	text-align: center;
-   	 font-family: DFKai-sb;
-    	background-color:#F5FFFA;
-    	color:#191970;
-}
-
-h1{
-	color:black;
-}
-
-h2{
-	font-style: italic;
-	color: #708090;
-}
-
-table{
-	margin-left:auto; 
-	margin-right:auto;
-    	/*將表格置中*/
-}
-tr,td {
-	border-bottom:gray 1px solid;
-    	border-callapse:collapse;
-    	magin:0px;
-    	padding:5px;
-    	spacing:0px;
-}	
-.line{
-	border-right:gray 1px solid;
-}
-
-.ul{
-	display: flex;  /* 水平置中 */
-    	justify-content: center;    /* 垂直置中 */  
-}
-.all{
-    	width:100%;
-}
-.bottom{
+form{
 	width:60%;
-	border-bottom:#DCDCDC 1px solid;
-	margin-left:20%
+    margin:10%;
+    padding:10%;
+    text-align:center;
+    border:1px LightGray solid;
+    background-color:lightblue;
+}
+.ib{
+	display:inline-block;
+}
+.notib{
+	display:block;
+}
+input{
+    padding:10px;
+    display:inline-block;
+}
+input:focus {
+  border: 2px solid #555;
 }
 
+select{
+	padding:10px;
+    display:inline-block;
+}
+
+input[type=text]{
+	width:80%;
+}
+input[type=button]{
+	width:100%;
+    font-size:20px;
+}
 </style>
 
 </head>
 
 
 <body>
-
-<div class="all">
-
-<header><h1>黃品慈</h1></header>
-<nav>
-<a href="https://www.facebook.com/ivy.haung.14"><img src="facebook.png" alt="error" width="30px" height="30px"/></a>
-<a href="https://www.instagram.com/ivyhuang_0814/"><img src="instagram.png" alt="error" width="30px" height="30px"/></a>
-<a href="https://github.com/st950344"><img src="github.png" alt="error" width="30px" height="30px"/></a>
-</nav>
-
-
-<p>現在就讀於國立金門大學資工系。</p>
-
-<div class="bottom">
-<h2>興趣</h2>
-<div class="ul">
-<ul>
-	<li>閱讀與書寫小說</li>
-    <li><dl>
-    <dt>打遊戲</dt>
-    </dl></li>
-    <li>釣魚</li>
-</ul>
-</div></div>
-
-<div class="bottom">
-<table>
-  <capation><h2>學歷</h2></capation>
-  <tr>
-    <th>階段</th>
-    <th>學校</th>
-  </tr>
-    <tr>
-    <td class="line">國小</td>
-    <td>臺北市內湖區南湖國民小學</td>
-  </tr>
-    <tr>
-    <td class="line">國中</td>
-    <td>臺北市立明湖國民中學</td>
-  </tr>
-    <tr>
-    <td class="line">高中</td>
-    <td>臺北市立大直高級中學</td>
-  </tr>
-    <tr>
-    <td class="line">大學</td>
-    <td>國立金門大學</td>
-  </tr>
-</table>
+<form>
+<h1>Registration Form</h1>
+<p class="ib"><input type="text" name="firstname" value="" placeholder="First Name"/></p>
+<p class="ib"><input type="text" name="lastname" value="" placeholder="Last Name"/></p>
 <br>
+<p class="ib">Birth：<input type="date"></p>
+<div class="ib">
+<input  type="radio" name="sex" value="male">Female
+<input  type="radio" name="sex" value="female">Male
+<input  type="radio" name="sex" value="female">Other
 </div>
+<br>
+<p class="ib"><input type="text" name="email" value="" placeholder="E-mail"/></p>
+<p class="ib"><input type="text" name="phone" value="" placeholder="Phone Number"/></p>
+<p class="notib">Address<textarea id="w3review" name="w3review" rows="4" cols="50"></textarea></p>
 
-<div class="bottom">
-<h2>學習語言</h2>
-<p>c</p>
-<p>c#</p>
-<p>HTML+css</p>
-<p>JavaScript</p>
-</div>
+<select class="notib">
+    <option>選擇產品</option>
+    <option>產品一</option>
+    <option>產品二</option>
+	<option>產品三</option>
+</select>
+<br><br>
+<p class="ib"><input type="button" value="submit" name="Submit"></p>
 
-<div class="bottom">
-<h2>作品集</h2>
-<p></p>
-</div>
+</form>
 
-</div>
 
+
+
+<button>
 </body>
 </html>
