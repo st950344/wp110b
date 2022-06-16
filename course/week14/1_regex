@@ -1,0 +1,28 @@
+> let test = " name:ivy surname:Huang age:30 weight:55"
+< undefined
+> let re1 = /[0-9]+/g //g為全域
+< undefined
+> re1
+< /[0-9]+/g
+> test.match(re1)
+< (2) ['30', '55']
+> let re2 = /[a-z]+/g 
+< undefined
+> test.match(re2)
+< (6) ['name', 'ivy', 'surname', 'uang', 'age', 'weight']
+> let re3 = /:[0-9a-zA-Z]+/g
+< undefined
+> test.match(re3)
+< (4) [':ivy', ':Huang', ':30', ':55']
+> let re4 = /:([0-9a-zA-Z]+)/g
+< undefined
+> let array = test.match(re4) //產生結果變成陣列
+< undefined
+> array
+< (4) [':ivy', ':Huang', ':30', ':55']0: ":ivy"1: ":Huang"2: ":30"3: ":55"length: 4[[Prototype]]: Array(0)
+> let re5 = /:([0-9a-zA-Z]+)/ //不添加g
+< undefined
+> let array2 = test.match(re5)
+< undefined
+> array2
+< (2) [':ivy', 'ivy', index: 5, input: ' name:ivy surname:Huang age:30 weight:55', groups: undefined]0: ":ivy"1: "ivy"groups: undefinedindex: 5input: " name:ivy surname:Huang age:30 weight:55"length: 2[[Prototype]]: Array(0)
