@@ -39,13 +39,13 @@
         #Start{
             margin: 20px;
             padding: 20px;
-            background-color:lightblue;
+            background-color:DarkMagenta;
+            color:white;
             border: 0px;
             font-size:50px;
         }
         #Start:hover{
-            background-color:SteelBlue;
-            color:white;
+            background-color:Plum;
             border: 0px;
         }
 
@@ -54,15 +54,16 @@
             margin: 20px;
             padding: 10px;
             float:right;
-            background-color:lightblue;
+            background-color:DarkSlateBlue;
+            color:white;
         }
         #add:hover{
             display:none;
             margin: 20px;
             padding: 10px;
             float:right;
-            background-color:SteelBlue;
-            color:white;
+            background-color:MediumPurple;
+
         }
       
       
@@ -103,7 +104,7 @@
     //開始按鈕
     function start(){
         document.getElementById("games").style.border =  " 1px solid #003060 " ;
-        document.getElementById("games").style.backgroundColor =  " #B8B8FF " ;
+        document.getElementById("games").style.backgroundColor =  " PaleTurquoise " ;
         document.getElementById("add").style.border =  " 0px " ;
         document.getElementById("view1").innerHTML = "計時球球";
         document.getElementById("view2").innerHTML = "人總是要是要放慢腳步走的阿";
@@ -214,7 +215,7 @@
         if (remainingTime == 0) {
           // stop the timer.
           clearInterval(timerId);
-		        document.getElementById("view1").innerHTML = "恭喜你浪費了30秒";
+		        document.getElementById("text").innerHTML = "恭喜你浪費了30秒";
 			//window.location.href = "https://st950344.github.io/wp110b/midterm/midterm2.html";
         } 
       }
@@ -260,7 +261,7 @@ function textRenderer (seconds) {
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">	</script>	
   <div class="progessbar">
-  <div class="text"></div>
+  <div class="text" id="text"></div>
   <div class="bar"></div>
   </div>
   <div class="msg"></div>
