@@ -96,7 +96,7 @@
 
 <body>
 
-    <button id="Start" type="button" onclick="start()">開始遊戲</button>
+    <button id="Start" type="button" onclick="start()">開始</button>
 
     <script>
       /*遊戲*/
@@ -105,8 +105,8 @@
         document.getElementById("games").style.border =  " 1px solid #003060 " ;
         document.getElementById("games").style.backgroundColor =  " #B8B8FF " ;
         document.getElementById("add").style.border =  " 0px " ;
-        document.getElementById("view1").innerHTML = "閃避遊戲";
-        document.getElementById("view2").innerHTML = "請試著利用滑鼠來閃避到處飛的球吧！";
+        document.getElementById("view1").innerHTML = "計時球球";
+        document.getElementById("view2").innerHTML = "人總是要是要放慢腳步走的阿";
         document.getElementById("add").style.display = "block";
         document.getElementById("Start").style.display = "none";
     }
@@ -195,7 +195,7 @@
       const startTime = new Date().getTime();
 
       // 目標時間(要倒數幾秒)。
-      const targetSeconds = 5;
+      const targetSeconds = 30;
 
       // timer.
       var timer = function (startTime) {
@@ -214,8 +214,8 @@
         if (remainingTime == 0) {
           // stop the timer.
           clearInterval(timerId);
-			window.location.href = "https://st950344.github.io/wp110b/midterm/midterm2.html";
-
+		        document.getElementById("view1").innerHTML = "恭喜你浪費了30秒";
+			//window.location.href = "https://st950344.github.io/wp110b/midterm/midterm2.html";
         } 
       }
 
