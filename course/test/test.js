@@ -19,7 +19,7 @@ return ball;
 var Screen=function (cid,config) {
 //先建立類的屬性
 var self=this;
-if (!(self instanceof Screen)) {
+if (!(self instanceof Screen)) {  //測試self是否為Screan的實作
 return new Screen(cid,config)
 }
 config=extend(Screen.Config, config)  //configj是extend類的例項
