@@ -9,6 +9,8 @@
 
 觸碰到球即會跳警告。  
 警告按確認鍵和取消會有不同的回應。  
++ 確認：重新導覽頁面。
++ 取消：導到thank.html。
 
 > 花費極大量的時間去處理如何重來。 *[小小證明](https://github.com/st950344/wp110b/blob/master/course/test/exam.html)*
 
