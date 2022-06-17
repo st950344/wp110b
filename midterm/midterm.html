@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        .ball{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            position: absolute;
+        }
+        
+        .ball:hover{
+        	display:none;
+
+        }
+        
+    </style>
+</head>
+
+<body>
+<game>
+    <button onclick="DOMrealize()">開始遊戲</button>
+    <script>
+    //分析：小球要實現隨機的運動，應該具有不同的移動速度以及不同的運動方向
+    function DOMrealize(){
+        var num=20;//定義生成小球數目
+        var minSpeed=2;//小球最小速度
+        var maxSpeed=10;//小球最大速度
+        var aBall=[];//定義一個數組來接受小球
+        //創建一個小球的對象
+        function Ball(){
+            this.init();
+        }
+        Ball.prototype={
+            init:function(){
+                //給小球添加私有屬性
+                this.speedX=random(minSpeed,maxSpeed);	//隨機xy值
+                this.speedY=random(minSpeed,maxSpeed);
+                this.div=document.createElement('div');	//每個球都是一個div框起來
+                this.div.className='ball';	//每個球的div中的class="ball"
+                this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);	//球的背景顏色
+                this.x=random(0,window.innerWidth-50); //要求x軸一定在視窗內，球體為50*50
+                this.y=random(0,window.innerHeight-50);
+            }
+        }
+        //造小球
+        for(var i=0;i<num;i++){
+            var ball=new Ball();
+            document.body.appendChild(ball.div); //添加新的球 appendChild(增加物件)
+            aBall.push(ball); //添加陣列
+        }
+        //小球運動
+        move();
+        function move(){
+            for(var i=0,len=aBall.length;i<len;i++){
+                draw(aBall[i]);
+                updata(aBall[i]);
+            }
+            requestAnimationFrame(move);
+        }
+        function draw(obj){
+            obj.div.style.top=obj.y+'px';	//運動軌跡
+            obj.div.style.left=obj.x+'px';
+        }
+        function updata(obj){
+            obj.x=obj.div.offsetLeft+obj.speedX;	//offsetLeft 偏移值?
+            obj.y=obj.div.offsetTop+obj.speedY;
+            // 反彈
+            if(obj.x<0){
+                obj.x=00;
+                obj.speedX*=(-1);
+            }
+            if(obj.y<100){
+                obj.y=100;
+                obj.speedY*=(-1);
+            }
+            // 避免出框
+            if(obj.x>(window.innerWidth-50)){
+                obj.x=window.innerWidth-50;
+                obj.speedX*=(-1);
+            }
+            if(obj.y>(window.innerHeight-50)){
+                obj.y=window.innerHeight-50;
+                obj.speedY*=(-1);
+            }
+        }
+        
+        // 失敗：碰到球
+        let balls = document.querySelectorAll('div');	//回傳的資料會是陣列
+        for(i = 0; i < balls.length; i++) {
+        	balls[i].addEventListener('mousemove', error);
+        };
+        function error(){
+        	alert("遊戲失敗，請重新開始");
+            document.body.removeChild(ball.div);
+            delete ball;
+         //DOMrealize();
+        }
+    }
+   
+    function random(min,max){
+        return ~~(Math.random()*(max-min)+min);
+    }
+    </script>
+    
+</game>
+
+</body>
+</html>
