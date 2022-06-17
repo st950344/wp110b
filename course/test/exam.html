@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      /*遊戲*/
+        *{
+            padding: 0;
+            margin: 0;
+            font-family: DFKai-sb;
+            font-size:25px;
+        }
+
+        .ball{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            position: absolute;
+        }
+        /*.ball:hover{
+        	display:none;
+        }*/
+
+        #view1,#view2,#view3{
+            padding: 5%;
+            margin: 5%;
+            text-align: center;
+        }
+
+        game,end{
+            position : absolute;
+            display:block;
+            width: 60%;
+            padding: 10%;
+            margin: 10%;
+        }
+        
+        #Start{
+            margin: 20px;
+            padding: 20px;
+            background-color:lightblue;
+            border: 0px;
+            font-size:50px;
+        }
+        #Start:hover{
+            background-color:SteelBlue;
+            color:white;
+            border: 0px;
+        }
+
+        #add{
+            display:none;
+            margin: 20px;
+            padding: 10px;
+            float:right;
+            background-color:lightblue;
+        }
+        #add:hover{
+            display:none;
+            margin: 20px;
+            padding: 10px;
+            float:right;
+            background-color:SteelBlue;
+            color:white;
+        }
+      
+      
+      /* 計時器*/
+      *{
+            padding: 0;
+            margin: 0;
+            font-family: DFKai-sb;
+            font-size:25px;
+        }
+
+        .ball{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            position: absolute;
+        }
+        /*.ball:hover{
+        	display:none;
+        }*/
+
+        #view1,#view2,#view3{
+            padding: 5%;
+            margin: 5%;
+            text-align: center;
+        }
+
+        game,end{
+            position : absolute;
+            display:block;
+            width: 60%;
+            padding: 10%;
+            margin: 10%;
+        }
+        
+        #Start{
+            margin: 20px;
+            padding: 20px;
+            background-color:lightblue;
+            border: 0px;
+            font-size:50px;
+        }
+        #Start:hover{
+            background-color:SteelBlue;
+            color:white;
+            border: 0px;
+        }
+
+        #add{
+            display:none;
+            margin: 20px;
+            padding: 10px;
+            float:right;
+            background-color:lightblue;
+        }
+        #add:hover{
+            display:none;
+            margin: 20px;
+            padding: 10px;
+            float:right;
+            background-color:SteelBlue;
+            color:white;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <button id="Start" type="button" onclick="start()">開始遊戲</button>
+
+    <script>
+      /*遊戲*/
+    //開始按鈕
+    function start(){
+        document.getElementById("games").style.border =  " 1px solid #003060 " ;
+        document.getElementById("games").style.backgroundColor =  " #B8B8FF " ;
+        document.getElementById("add").style.border =  " 0px " ;
+        document.getElementById("view1").innerHTML = "閃避遊戲";
+        document.getElementById("view2").innerHTML = "請試著利用滑鼠來閃避到處飛的球吧！";
+        document.getElementById("add").style.display = "block";
+        document.getElementById("Start").style.display = "none";
+
+
+        document.document.querySelectorAll('.ball').style.border =  " 1px solid gray " ;
+    }
+
+    //分析：小球要實現隨機的運動，應該具有不同的移動速度以及不同的運動方向
+    function DOMrealize(){
+        document.getElementById("games").style.display = "none";
+
+        var num=1;//定義生成小球數目
+        var minSpeed=2;//小球最小速度
+        var maxSpeed=10;//小球最大速度
+        var aBall=[];//定義一個數組來接受小球
+
+        //創建一個小球的對象
+        function Ball(){
+            this.init();
+        }
+        Ball.prototype={
+            init:function(){
+                //給小球添加私有屬性
+                this.speedX=random(minSpeed,maxSpeed);	//隨機xy值
+                this.speedY=random(minSpeed,maxSpeed);
+                this.div=document.createElement('div');	//每個球都是一個div框起來
+                this.div.className='ball';	//每個球的div中的class="ball"
+                this.div.style.backgroundColor='#' + Math.floor(Math.random() * 0xffffff).toString(16);	//球的背景顏色
+                this.x=random(0,window.innerWidth-50); //要求x軸一定在視窗內，球體為50*50
+                this.y=random(0,window.innerHeight-50);
+            }
+        }
+
+        //造小球
+        for(var i=0;i<num;i++){
+                var ball=new Ball();
+                document.body.appendChild(ball.div); //添加新的球 appendChild(增加物件)
+                aBall.push(ball); //添加陣列
+        }
+
+        //小球運動
+        move();
+        function move(){
+            for(var i=0,len=aBall.length;i<len;i++){
+                draw(aBall[i]);
+                updata(aBall[i]);
+            }
+            requestAnimationFrame(move);
+        }
+        function draw(obj){
+            obj.div.style.top=obj.y+'px';	//運動軌跡
+            obj.div.style.left=obj.x+'px';
+        }
+        function updata(obj){
+            obj.x=obj.div.offsetLeft+obj.speedX;	//offsetLeft 偏移值?
+            obj.y=obj.div.offsetTop+obj.speedY;
+            // 反彈
+            if(obj.x<0){
+                obj.x=0;
+                obj.speedX*=(-1);
+            }
+            if(obj.y<0){
+                obj.y=0;
+                obj.speedY*=(-1);
+            }
+            // 避免出框
+            if(obj.x>(window.innerWidth-50)){
+                obj.x=window.innerWidth-50;
+                obj.speedX*=(-1);
+            }
+            if(obj.y>(window.innerHeight-50)){
+                obj.y=window.innerHeight-50;
+                obj.speedY*=(-1);
+            }
+        }
+
+        ar BALL = document.querySelector(".ball");
+        BALL.addEventListener("mousemove", Count);
+        function Count(){
+            var count=0;
+            count++;
+        
+        }
+
+
+
+        
+        
+
+        // 失敗：碰到球
+        /*function error(){
+            location.reload();
+
+            //刪除球
+                /*for(var j = aBall.length; j>0 ; j--){
+                document.getElementByClassName("ball").style.display = "none";
+                document.body.removeChild(getElementByClassName("ball")); //刪除球 removeChild(刪除物件)
+                aBall.pop(); //去除陣列
+                }*/
+
+        	//window.confirm('挑戰失敗，是否要重新開始？');
+            //if (confirm('挑戰失敗，是否要重新開始？') == true) {
+                //document.getElementById("games").style.display = "block";
+                //document.getElementsByClassName("ball").style.display = "none";
+           // }
+            //else {
+                //document.getElementById("view3").innerHTML = "感謝遊玩";
+           // }
+        //} 
+
+
+        /*let balls = document.querySelectorAll('div');	//回傳的資料會是陣列
+        for(i = 0; i < balls.length; i++) {
+        	balls[i].addEventListener('mousemove', error);
+        };
+        function error(){
+        	alert("遊戲失敗，請重新開始");
+            document.body.removeclass(ball.div);
+            delete ball;
+
+            
+            $("div").removeClass("ball");
+
+         //DOMrealize();
+        }*/
+
+    }
+
+    
+    function random(min,max){
+        return ~~(Math.random()*(max-min)+min);
+    }
+      
+      /*計時器*/ 
+      const startTime = new Date().getTime();
+
+// 目標時間(要倒數幾秒)。
+const targetSeconds = 60;
+
+// timer.
+var timer = function (startTime) {
+  // 當前時間。
+  var currentTime = new Date().getTime();
+  
+  // 當前時間 - 起始時間 = 經過時間。(因為不需要毫秒，所以將結果除以1000。)
+  var diffSec = Math.round((currentTime - startTime) / 1000);
+  
+  // 目標時間 - 經過時間 = 剩餘時間。
+  var remainingTime = targetSeconds - diffSec;
+  
+  // update progess.  
+  update(remainingTime);   
+  
+  if (remainingTime == 0) {
+    // stop the timer.
+    clearInterval(timerId);
+    
+    // do anything you want to.
+    $(".msg").text("time up!");
+  } 
+}
+
+// start the timer.
+var timerId = setInterval( function () { timer(startTime); }, 1000);
+
+// update progess with the timer.
+function update (seconds) {
+  barRenderer(seconds);
+  textRenderer(seconds);
+}
+
+// refresh the bar.
+function barRenderer (seconds) {
+  var percent = (seconds / targetSeconds) * 100;
+  $(".bar").css("width", percent + "%");
+}
+
+// refresh the text of the bar.
+function textRenderer (seconds) {
+  var sec = seconds % 60;  
+  var min = Math.floor(seconds / 60); 
+
+  /* 兩種作法都可以 */
+  //min = min > 9 ? min : "0" + min;
+  //sec = sec > 9 ? sec : "0" + sec;  
+  min = min.toString().padStart(2, '0');
+  sec = sec.toString().padStart(2, '0');
+  
+  $(".text").text(min + ":" + sec);		
+}
+      
+    </script>
+    
+   /*計時器*/ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>	
+  <div class="progessbar">
+  <div class="text"></div>
+  <div class="bar"></div>
+  </div>
+  <div class="msg"></div>
+
+  /*遊戲*/ 
+    <game id="games">
+        <h2 id="view1"></h2><br>
+        <p id="view2"></p>
+        <button id="add" onclick="DOMrealize()">&emsp;好&emsp;</button>
+    </game>
+
+    <end id="ended">
+        <h2 id="view3"></h2><br>
+    </end>
+
+
+</body>
+</html>
