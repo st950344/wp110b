@@ -22,7 +22,7 @@
 [網頁](https://st950344.github.io/wp110b/midterm/midterm2.html) 
 
 與專案一最大的差別就是多了倒數計時器。  
-倒數的時間到了會自動更換網頁。   
+倒數的時間到了會~~自動更換網頁~~ 顯示訊息。   
 也是因此而勉強解決專案一無法重來的問題。  
 
 
@@ -34,4 +34,4 @@
 + https://donggualemon.github.io/2019/08/15/Phaser/
 ### 次要
 + https://donggualemon.github.io/2019/08/15/Phaser/
-+ https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/276870/
++ https://codertw.com/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/276870/  
