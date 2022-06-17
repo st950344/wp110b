@@ -10,7 +10,7 @@
 觸碰到球即會跳警告。  
 警告按確認鍵和取消會有不同的回應。  
 
-> 花費極大量的時間去處理如何重來。  
+> 花費極大量的時間去處理如何重來。 *[小小證明](https://github.com/st950344/wp110b/blob/master/course/test/exam.html)*
 
 > 試過```removeChild()```、```for迴圈```、```location```等。
 
